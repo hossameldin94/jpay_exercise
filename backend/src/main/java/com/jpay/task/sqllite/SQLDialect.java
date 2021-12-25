@@ -1,4 +1,4 @@
-package com.jpay.task.data;
+package com.jpay.task.sqllite;
 
 import org.hibernate.dialect.Dialect;
 import org.hibernate.dialect.function.SQLFunctionTemplate;
