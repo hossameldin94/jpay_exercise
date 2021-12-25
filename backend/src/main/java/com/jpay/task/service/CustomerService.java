@@ -38,10 +38,10 @@ public class CustomerService {
                 if (Pattern.compile(phone.getCountryRegex()).matcher(customer.getPhone()).matches()) {
                     customerAppModel.setCountryName(phone.toString());
                     if (Pattern.compile(phone.getValidRegex()).matcher(customer.getPhone()).matches()) {
-                        customerAppModel.setValid(true);
+                        customerAppModel.setState("Valid");
                     }
                     else
-                        customerAppModel.setValid(false);
+                        customerAppModel.setState("Not Valid");
                     break;
                 }
             }

@@ -5,14 +5,14 @@ public class CustomerModel {
     private String name;
     private String phoneNumber;
     private String countryName;
-    private Boolean valid;
+    private String state;
 
-    public Boolean getValid() {
-        return valid;
+    public String getState() {
+        return state;
     }
 
-    public void setValid(Boolean valid) {
-        this.valid = valid;
+    public void setState(String state) {
+        this.state = state;
     }
 
     public Integer getId() {
