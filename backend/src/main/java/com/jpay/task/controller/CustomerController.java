@@ -1,6 +1,7 @@
 package com.jpay.task.controller;
 
 import com.jpay.task.data.Customer;
+import com.jpay.task.models.CustomerModel;
 import com.jpay.task.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,4 +19,9 @@ public class CustomerController {
     public List<Customer> readCustomers(){
         return customerService.readCustomers();
     }
+    @RequestMapping(value = "/getcountrycustomers", method = RequestMethod.GET)
+    public List<CustomerModel> getCountryCustomer(){
+        return customerService.getCustomers();
+    }
+
 }
