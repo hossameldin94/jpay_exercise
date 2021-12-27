@@ -13,12 +13,12 @@ import java.util.List;
 
 @RestController
 public class CustomerController {
-    @Autowired
-    private CustomerService customerService;
 
-    @RequestMapping(value = "/getcustomers", method = RequestMethod.GET)
-    public List<Customer> readCustomers(){
-        return customerService.readCustomers();
+    private CustomerService customerService;
+    @Autowired
+    public CustomerController(CustomerService customerService)
+    {
+        this.customerService = customerService;
     }
 
     @CrossOrigin(origins = "http://localhost:3000")
