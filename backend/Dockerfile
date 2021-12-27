@@ -11,6 +11,12 @@ COPY .mvn .mvn
 # Copy the pom.xml file
 COPY pom.xml .
 
+RUN chmod 777 *
+
+RUN apk add dos2unix --update-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community/ --allow-untrusted
+
+RUN dos2unix mvnw
+
 # Build all the dependencies in preparation to go offline. 
 # This is a separate step so the dependencies will be cached unless 
 # the pom.xml file has changed.
@@ -27,6 +33,8 @@ RUN mkdir -p target/dependency && (cd target/dependency; jar -xf ../*.jar)
 FROM openjdk:8-jre-alpine
 
 ARG DEPENDENCY=/app/target/dependency
+
+COPY sample.db sample.db
 
 # Copy project dependencies from the build stage
 COPY --from=build ${DEPENDENCY}/BOOT-INF/lib /app/lib
